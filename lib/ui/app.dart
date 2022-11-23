@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       home: const Login(),
       routes: {
         '/Login': (context) => const Login(),
-        '/salachat': (context) => const SalaChat()
+        '/salachat': (context) => const Chat()
       },
     );
   }

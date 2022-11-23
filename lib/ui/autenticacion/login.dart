@@ -1,4 +1,6 @@
+import 'package:chat_firebase/domain/controller/controluser.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -10,7 +12,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
   TextEditingController passw = TextEditingController();
-
+  ControlAuthFirebase ca = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +58,11 @@ class _LoginState extends State<Login> {
                     child: const Text('Login'),
                   ),
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      ca
+                          .registrarEmail(email.text, passw.text)
+                          .then((value) => Get.toNamed('/salachat'));
+                    },
                     child: const Text('Registrarse'),
                   )
                 ],
